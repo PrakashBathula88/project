@@ -1,0 +1,43 @@
+.All_Input {
+  padding: 20px;
+  
+  width: 98%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://www.national.edu/wp-content/uploads/2021/11/Nov_4_iStock-1127069581-scaled.jpeg");
+  flex-direction: column;
+
+  background-size: cover;
+  margin-right: 300px;
+
+}
+/* 
+.fields{
+  margin-bottom: 30px;
+  color: red;
+} */
+.All_Input label,input{
+ margin-top: 30px;
+ margin-left: 4px;  
+ padding: 10px;
+ border: none;
+border-radius: 4px;
+color: darkslategrey;
+
+}
+
+.All_Input button{
+  margin-left: 87px;
+  padding: 8px;
+  border-radius: 6px ;
+  margin-top:30px ;
+  color: blue;
+  background-color: aquamarine;
+}
+
+.All_Input h1{
+  color:pink;
+  margin-bottom: 50px;
+}

@@ -10,10 +10,11 @@ import { ProductProvider } from "./Components/FormContext/FormProvider";
 function App() {
   return (
     <div>
-      <Nav />
       <ProductProvider>
+      <Nav />
         <AddProductForm />
         <ProductList />
+       
       </ProductProvider>
     </div>
   );

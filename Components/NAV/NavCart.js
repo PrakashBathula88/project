@@ -1,36 +1,74 @@
 import React, { useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
-import CartOptions from "./CartModal";
+import Modal from "../CartModal/CartModal";
 import "../NAV/Nav.css";
+import { useProductContext } from "../FormContext/FormProvider";
 
 const CartIcon = () => {
-  const [showOptions, setShowOptions] = useState(false);
+  const { CartItems, HandleRemove } = useProductContext();
+  const [showOptions, ShowOptions] = useState(false);
 
   const toggleOptions = () => {
-    setShowOptions(!showOptions);
+    ShowOptions(!showOptions);
   };
 
-  const handleClose = () => {
-    setShowOptions(false);
+  const closeOption = () => {
+    ShowOptions(false);
   };
 
-  const handleOrder = () => {
-    setShowOptions(false);
+  const orderOption = () => {
+    ShowOptions(true);
   };
+
+  const DeleteHandler = (index) => {
+    HandleRemove(index);
+  };
+
+  const ArrItems = (
+    <div className="cart_output">
+      <table>
+        <tbody>
+          {CartItems.map((item, index) => (
+            <tr key={index}>
+              <td>{item.name}</td>
+              <td>{item.description}</td>
+              <td >{item.price}</td>
+              <td>
+                <button type="submit" onClick={() => DeleteHandler(index)}>
+                  {" "}
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 
   return (
     <>
-      <button className="All-items-nav" onClick={toggleOptions}>
-        <div className="Cart_items">
+      <div className="All-items-nav">
+        
+        <div className="Cart_items" onClick={toggleOptions}>
+         
           <span>Cart</span>
           <FaCartPlus className="Icons_cart" />
         </div>
-      </button>
-
+      </div>
       {showOptions && (
-        <>
-          <CartOptions onClose={handleClose} onOrder={handleOrder} />
-        </>
+        <Modal onClose={closeOption}>
+          {ArrItems}
+          <div className="cart-options">
+            <div></div>
+            <button onClick={closeOption} className="close-button">
+              Close
+            </button>
+            <button onClick={orderOption} className="order-button">
+              Order
+            </button>
+          </div>
+        </Modal>
       )}
     </>
   );

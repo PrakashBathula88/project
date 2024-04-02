@@ -2,26 +2,94 @@
     width: 100%;
     height: 100px;
     margin-top: -30px;
-    background-color: brown;
+    background-color:rgb(0, 0, 0);
+    
 }
+
 
 .Cart_items{
    margin-left: 85%;
     margin-top: 30px;
     font-size: 30px;
-  
+   
+    border-radius: 10px solid green;
+    color: aqua;
+   
 }
+
 .Icons_cart{
 margin-left: 8px;
 margin-bottom: -3px;
+margin-top: 30px;
+
+}
+.close-button{
+    margin-left: 400px;
+    padding: 8px;
+    margin-top: 50px;
+    width: 70px;
+    color: blue;
+}
+
+.close-button:hover{
+    background-color:green;
+    border-radius: 10px;
+
+}
+
+.order-button{
+    margin-left: 40px   ;
+    padding: 8px;
+    margin-top: 50px;
+    width: 70px;
+    color: blue;
+}
+.order-button:hover{
+    background-color: pink;
+    border-radius: 10px;
+  
+}
+.Logo{
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    margin-right: 20%;
 }
 
 
 
 
+.cart_output{
+color: red;
 
 
+}
+
+.cart_output td{
+    
+    border-bottom: 2px solid navy;
+   
+ 
+}
+
+.cart_output button{
+  margin-left: 400px; 
+  padding: 8px; 
+  
+  background-color:red;
+  border-radius: 5px;
+  width:67px;
+}
+.cart_output button:hover{
+    background-color: rgba(255, 0, 0, 0.071);
+    color: red;
+}
 
 
-
-
+  
+  .cart_output table {
+    width: 95%;
+    border-collapse: collapse;
+   
+  }
+ 

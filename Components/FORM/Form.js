@@ -1,44 +1,52 @@
 import React, { useState } from "react";
 import { useProductContext } from "../FormContext/FormProvider";
+import "../FORM/Form.css";
+import { FaHeartbeat } from "react-icons/fa";
 const AddProductForm = () => {
-  const [Name, SetName] = useState("");
+  const [Name, setName] = useState("");
+  const [Descriptor, setDescriptor] = useState("");
+  const [Price, setPrice] = useState("");
   const { AddProduct } = useProductContext();
-  const [Desciptr, SetDiscript] = useState("");
-  const [Price, SetPrice] = useState("");
 
-  const TogleSubmit = (event) => {
+  const toggleSubmit = (event) => {
     event.preventDefault();
 
     const product = {
       name: Name,
-      Desc: Desciptr,
-      Pri: Price,
+      description: Descriptor,
+      price: Price,
     };
+
     AddProduct(product);
 
-    SetName("");
-    SetDiscript("");
-    SetPrice("");
+    setName("");
+    setDescriptor("");
+    setPrice("");
   };
+
   return (
-    <form onSubmit={TogleSubmit}>
+    <form onSubmit={toggleSubmit} className="All_Input">
+      <h1>
+        {" "}
+        <FaHeartbeat /> MEDICAL ADMIN PANEL <FaHeartbeat />
+      </h1>
       <div>
-        <label>MedicineName</label>
+        <label>Name </label>
         <input
           type="text"
-          placeholder="MediciNe name"
+          placeholder="Medicine Name"
           value={Name}
-          onChange={(e) => SetName(e.target.value)}
-        ></input>
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
       <div>
-        <label>Description</label>
+        <label>Descrip</label>
         <input
           type="text"
           placeholder="Description"
-          value={Desciptr}
-          onChange={(e) => SetDiscript(e.target.value)}
-        ></input>
+          value={Descriptor}
+          onChange={(e) => setDescriptor(e.target.value)}
+        />
       </div>
       <div>
         <label>Price $</label>
@@ -46,8 +54,8 @@ const AddProductForm = () => {
           type="number"
           placeholder="Price"
           value={Price}
-          onChange={(e) => SetPrice(e.target.value)}
-        ></input>
+          onChange={(e) => setPrice(e.target.value)}
+        />
       </div>
       <div>
         <button type="submit">Add Product</button>
@@ -55,4 +63,5 @@ const AddProductForm = () => {
     </form>
   );
 };
+
 export default AddProductForm;
